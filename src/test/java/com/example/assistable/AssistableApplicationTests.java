@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.http.MediaType;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -30,7 +31,7 @@ class AssistableApplicationTests {
                         .param("yourReference", "reference123"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_PLAIN))
-                .andExpect(content().string("{\"Status\":\"Failure\",\"Error\":\"Insufficient funds, Please fund account or contact support @ support@pbverify.co.za..\"}"));
+                .andExpect(content().string("{\"Status\":\"Failure\",\"Error\":\"Authentication error, please check your memberkey and password and try again\"}"));
     }
 
     @Test
